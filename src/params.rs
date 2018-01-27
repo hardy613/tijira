@@ -1,8 +1,6 @@
 // this file describes the program/app
 // and the arguments types and how they are used
-
-extern crate clap;
-use self::clap::{Arg, App};
+use clap::{Arg, App};
 use std::env;
 
 #[derive(Debug)]
@@ -115,7 +113,7 @@ impl Params {
             host: from_key("host"),
             identifier: from_key("identifier"),
             ticket: from_key("ticket"),
-            api: "/rest/api/2".to_owned()
+            api: "/rest/api/2/search?jql=".to_owned()
         }
     }
 }
