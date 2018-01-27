@@ -6,7 +6,6 @@ use args::Args;
 use std::io::Read;
 
 pub struct Jira {
-    pub results: Vec<String>,
     pub client: Client,
 }
 
