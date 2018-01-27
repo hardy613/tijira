@@ -4,7 +4,6 @@
 extern crate clap;
 use self::clap::{Arg, App};
 use std::env;
-use args::Args;
 
 #[derive(Debug)]
 pub struct Args {

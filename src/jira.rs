@@ -4,7 +4,7 @@ extern crate futures;
 extern crate reqwest;
 use self::reqwest::{Client, Response, StatusCode};
 use self::reqwest::header::ContentType;
-use args::Args;
+use params::Args;
 use std::io::Read;
 
 pub struct Jira {

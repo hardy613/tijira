@@ -1,5 +1,5 @@
 // this file builds the user request
-use args::Args;
+use params::Args;
 
 pub fn build_identifier_request(args: &Args) -> String {
     let mut query = String::new();
