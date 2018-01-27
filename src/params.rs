@@ -6,6 +6,16 @@ use self::clap::{Arg, App};
 use std::env;
 use args::Args;
 
+#[derive(Debug)]
+pub struct Args {
+    pub user: String,
+    pub password: String,
+    pub host: String,
+    pub identifier: String,
+    pub ticket: String,
+    pub api: String
+}
+
 pub struct Params {
     user_env: Option<String>,
     password_env: Option<String>,
