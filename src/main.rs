@@ -1,9 +1,9 @@
 #[macro_use] extern crate log;
 
-pub mod args;
-pub mod params;
-pub mod query;
-pub mod jira;
+mod args;
+mod params;
+mod query;
+mod jira;
 
 use params::Params;
 use jira::Jira;

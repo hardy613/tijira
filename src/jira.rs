@@ -1,3 +1,5 @@
+// creates a request client incase the user makes multiple 
+// reqwests in a single useage
 extern crate futures;
 extern crate reqwest;
 use self::reqwest::{Client, Response, StatusCode};
@@ -12,7 +14,6 @@ pub struct Jira {
 impl Jira {
     pub fn new() -> Jira {
         Jira {
-            results: Vec::new(),
             client: Client::new()
         }
     }
@@ -31,11 +32,9 @@ impl Jira {
                 error.to_string()
             }
         }
-
     }
 
     fn parse_response(mut response: Response) -> String  {
-
         match response.status() {
             StatusCode::Ok => {
                 let mut body = String::new();
@@ -48,8 +47,6 @@ impl Jira {
                 println!("Error: {:?}", code);
                 text
             }
-
-
         }
     }
 }
