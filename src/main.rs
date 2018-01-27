@@ -1,6 +1,5 @@
 #[macro_use] extern crate log;
 
-mod args;
 mod params;
 mod query;
 mod jira;
