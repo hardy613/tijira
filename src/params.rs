@@ -67,7 +67,6 @@ impl Params {
              .takes_value(true)
              .help("Your Jira username. \
                    Defaults to JIRA_USER environment variable{n}");
-
         match self.user_env.as_ref() {
             Some(user) => arg.default_value(user),
             None => arg.required(true)
@@ -82,7 +81,6 @@ impl Params {
             .hidden(true);
             //.help("Jira password. \
             //  Defaults to JIRA_PASSWORD environment variable{n}");
-
         match self.password_env.as_ref() {
             Some(password) => arg.default_value(password),
             None => arg.required(true)
@@ -96,7 +94,6 @@ impl Params {
             .takes_value(true)
             .help("Jira host URL. \
                   Defaults to JIRA_HOST environment variable{n}");
-
         match self.host_env.as_ref() {
             Some(host) => arg.default_value(host),
             None => arg.required(true)

@@ -52,8 +52,6 @@ impl Jira {
 
     pub fn parse_issues(issues: &String) -> Result<Value, Error> {
         let items: Value = self::serde_json::from_str(&issues)?;
-
         Ok(items)
-        
     }
 }
