@@ -26,7 +26,7 @@ impl Jira {
         request.basic_auth(user, Some(password));
         request.header(ContentType::json());
         match request.send() {
-            Ok(response) => Jira::parse_request(response),
+            Ok(response) => Jira::parse_response(response),
             Err(error) => {
                 println!("Error: {}", error);
                 error.to_string()
@@ -34,7 +34,7 @@ impl Jira {
         }
     }
 
-    fn parse_request(mut response: Response) -> String {
+    fn parse_response(mut response: Response) -> String {
         match response.status() {
             StatusCode::Ok => {
                 let mut body = String::new();

@@ -14,7 +14,7 @@ pub fn build_ticket_request(args: &Args) -> String {
     query.push_str(&args.api);
     query.push_str("key=");
     query.push_str(&args.ticket);
-    query.push_str("&fields=id,key,summary,description\
+    query.push_str("&fields=*all\
     &maxResults=1");
     query
 }
