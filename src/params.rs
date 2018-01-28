@@ -1,10 +1,17 @@
 // this file describes the program/app
 // and the arguments types and how they are used
-
-extern crate clap;
-use self::clap::{Arg, App};
+use clap::{Arg, App};
 use std::env;
-use args::Args;
+
+#[derive(Debug)]
+pub struct Args {
+    pub user: String,
+    pub password: String,
+    pub host: String,
+    pub identifier: String,
+    pub ticket: String,
+    pub api: String
+}
 
 pub struct Params {
     user_env: Option<String>,
@@ -60,7 +67,6 @@ impl Params {
              .takes_value(true)
              .help("Your Jira username. \
                    Defaults to JIRA_USER environment variable{n}");
-
         match self.user_env.as_ref() {
             Some(user) => arg.default_value(user),
             None => arg.required(true)
@@ -75,7 +81,6 @@ impl Params {
             .hidden(true);
             //.help("Jira password. \
             //  Defaults to JIRA_PASSWORD environment variable{n}");
-
         match self.password_env.as_ref() {
             Some(password) => arg.default_value(password),
             None => arg.required(true)
@@ -89,7 +94,6 @@ impl Params {
             .takes_value(true)
             .help("Jira host URL. \
                   Defaults to JIRA_HOST environment variable{n}");
-
         match self.host_env.as_ref() {
             Some(host) => arg.default_value(host),
             None => arg.required(true)
@@ -106,7 +110,7 @@ impl Params {
             host: from_key("host"),
             identifier: from_key("identifier"),
             ticket: from_key("ticket"),
-            api: "/rest/api/2".to_owned()
+            api: "/rest/api/2/search?jql=".to_owned()
         }
     }
 }

@@ -1,11 +1,11 @@
 // creates a request client incase the user makes multiple 
 // reqwests in a single useage
-extern crate futures;
-extern crate reqwest;
-use self::reqwest::{Client, Response, StatusCode};
-use self::reqwest::header::ContentType;
-use args::Args;
+extern crate serde_json;
+use reqwest::{Client, Response, StatusCode};
+use reqwest::header::ContentType;
+use params::Args;
 use std::io::Read;
+use self::serde_json::{Value, Error};
 
 pub struct Jira {
     pub client: Client,
@@ -34,7 +34,7 @@ impl Jira {
         }
     }
 
-    fn parse_response(mut response: Response) -> String  {
+    fn parse_response(mut response: Response) -> String {
         match response.status() {
             StatusCode::Ok => {
                 let mut body = String::new();
@@ -48,5 +48,10 @@ impl Jira {
                 text
             }
         }
+    }
+
+    pub fn parse_issues(issues: &String) -> Result<Value, Error> {
+        let items: Value = self::serde_json::from_str(&issues)?;
+        Ok(items)
     }
 }
