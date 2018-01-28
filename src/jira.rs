@@ -6,9 +6,13 @@ use reqwest::header::ContentType;
 use params::Args;
 use std::io::Read;
 use self::serde_json::{Value, Error};
+use client::IssueClient;
 
 pub struct Jira {
     pub client: Client,
+}
+
+impl IssueClient for Jira {
 }
 
 impl Jira {
