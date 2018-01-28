@@ -22,11 +22,11 @@ pub fn display_ticket<'t>(ticket: &Value) {
         _ => color::Rgb(33, 79, 73)
     };
 
-    print!("{}{} |{} {} {}",
+    print!("{}{} |{} {} {}| ",
            style::Bold, key,
            color::Bg(status_color), status, color::Bg(color::Reset));
-    print!("| Assignee: {}", assignee);
-    println!(" | Reporter: {}{}", reporter, style::Reset);
+    print!("Assignee: {} | ", assignee);
+    println!("Reporter: {}{}", reporter, style::Reset);
     println!("\n{}", summary);
     println!("\n{}\n", desc);
 }

@@ -25,7 +25,6 @@ fn main() {
         true => query::build_ticket_request(&args)
     };
     debug!("query: {:?}", query);
-    println!("query: {:?}", query);
     let jira = Jira::new();
     let request = jira.send_request(&query, &args);
     debug!("result {:?}", request);
