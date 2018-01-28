@@ -23,5 +23,5 @@ OPTIONS:
     -t, --ticket <ticket>             Load a single Jira ticket. Cannot be used with identifier
     -h, --host <host>                 Jira host URL. Defaults to JIRA_HOST environment variable
     -u, --user <user>                 Your Jira username. Defaults to JIRA_USER environment variable
-    -p, --password <spassword>        Your Jira password. Defaults to JIRA_PASSWORD environment variable
+    -p, --password <password>        Your Jira password. Defaults to JIRA_PASSWORD environment variable
 ```
